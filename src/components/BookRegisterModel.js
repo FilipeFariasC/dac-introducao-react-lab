@@ -21,11 +21,7 @@ export function BookRegisterModel(props){
                 <h2 className="title">Book Register</h2>
             </header>
 
-            <form className="form book-form" 
-            onSubmit={(event)=>{
-                event.preventDefault();
-                registerBook();
-            }}>
+            <form className="form book-form" >
                 <div className="model-wrapper">
                     <label htmlFor="title">Title</label>
                     <input type="text" className="form-control" id="title" placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)}/>
@@ -39,7 +35,12 @@ export function BookRegisterModel(props){
                     <input type="text" className="form-control" id="genre" placeholder="Genre" value={genre} onChange={(event) => setGenre(event.target.value)}/>
                 </div>
                 <div className="model-wrapper">
-                    <button type="submit" className="form-control" id="submit" >
+                    <button type="submit" className="form-control" id="submit"
+                        onClick={(event)=>{
+                            event.preventDefault();
+                            registerBook();
+                    }}
+                    >
                         Submit
                     </button>
                 </div>
